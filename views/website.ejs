@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Parth Patel</title>
+  </head>
+  <body>
+    <div class="scrollable-container">
+      <div class="hero-section" id="home"><%- include('home') %></div>
+      <div class="about-section" id="about"><%- include('about') %></div>
+      <div class="portfolio-section" id="portfolio">
+        <%- include('portfolio') %>
+      </div>
+      <div class="contact-section" id="contact"><%- include('contact') %></div>
+      <div class="footer-section" id="footer"><%- include('footer') %></div>
+    </div>
+
+    <script>
+      let menuBox = document.getElementById("menuBox");
+      let menuIcon = document.getElementById("menuIcon");
+      let menuLinks = document.querySelector(".menu_links");
+
+      menuIcon.onclick = function () {
+        menuBox.classList.toggle("open_menu");
+
+        if (menuBox.classList.contains("open_menu")) {
+          menuIcon.src = "close.png";
+          document.body.style.overflow = "hidden";
+        } else {
+          menuIcon.src = "menu.png";
+          document.body.style.overflow = "";
+        }
+      };
+
+      menuLinks.addEventListener("click", () => {
+        menuBox.classList.remove("open_menu");
+        menuIcon.src = "menu.png";
+      });
+    </script>
+  </body>
+</html>
